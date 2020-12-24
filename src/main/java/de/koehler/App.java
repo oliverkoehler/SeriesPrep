@@ -20,7 +20,8 @@ public class App
             System.out.println(file);
         }
 
-        File copied = new File("D:\\test.txt");
+        File copied = new File("D:\\test.png");
         FileUtils.copyFile(test.files[0], copied);
+
     }
 }
