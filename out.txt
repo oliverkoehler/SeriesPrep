@@ -1,0 +1,11 @@
+
+2020/12/25 11:50:25 - test
+2020/12/25 11:50:25 - test
+2020/12/25 11:50:25 - test
+2020/12/25 11:50:25 - test
+2020/12/25 11:54:00 - File not exists. Filter: webcamdasdasd
+2020/12/25 11:55:01 - File not exists. Filter: webcamdasdasd at: G:\Geteilte Ablagen\Produktserien\Serien Bundles\Iridos\SHOP\EN
+2020/12/25 13:54:18 - File not exists. Filter: -youtube-banner-ia-end.webm at: G:\Geteilte Ablagen\Produktserien\Serien Bundles\Iridos\SHOP\EN\
+2020/12/25 14:00:14 - File not exists. Filter: -youtube-banner-ia-end.webm at: G:\Geteilte Ablagen\Produktserien\Serien Bundles\Iridos\SHOP\EN\
+2020/12/25 14:03:45 - File not exists. Filter: -youtube-banner-ia-end.webm at: G:\Geteilte Ablagen\Produktserien\Serien Bundles\Iridos\SHOP\EN\
+2020/12/25 14:04:43 - File not exists. Filter: -youtube-banner-ia-end.webm at: G:\Geteilte Ablagen\Produktserien\Serien Bundles\Iridos\SHOP\EN\
