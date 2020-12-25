@@ -4,6 +4,7 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Properties;
 
 public class InteractiveShowcases {
@@ -26,20 +27,25 @@ public class InteractiveShowcases {
             "-talking-banner-ia-en.webm",
             "-twitch-profile-ia-en.webm",
             "-webcam-ia-en.webm",
-            "-youtube-banner-ia-end.webm"
+            "-youtube-banner-ia-en.webm"
     };
 
-    InteractiveShowcases() throws IOException {
+    InteractiveShowcases(String[] languages) throws IOException {
         prop.load(ip);
-        String path = prop.getProperty("seriesfolder") + prop.getProperty("seriesname") + "\\SHOP\\EN\\";
-        for (String aCase : cases) {
-            FilesByName files = new FilesByName(path, aCase);
+        for (String language : languages) {
+            String path = prop.getProperty("seriesfolder") + prop.getProperty("seriesname") + "\\SHOP\\" + language + "\\";
+            for (String aCase : cases) {
+                FilesByName files = new FilesByName(path, aCase);
+                if (files.files.length == 0){
+                    System.err.println("File does not exist. File: " + prop.getProperty("seriesname") + aCase);
+                }
 
-            System.out.println(files);
-            for (File file : files.files) {
-                File copied = new File(prop.getProperty("targetPath") + "ProductPictures\\" + file.getName());
-                FileUtils.copyFile(file, copied);
+                for (File file : files.files) {
+                    File copied = new File(prop.getProperty("targetPath") + "IA\\" + language.toLowerCase() + "\\" + file.getName());
+                    FileUtils.copyFile(file, copied);
+                }
             }
         }
+        System.out.println("1 / 9 - Interactive Showcases completed.");
     }
 }
