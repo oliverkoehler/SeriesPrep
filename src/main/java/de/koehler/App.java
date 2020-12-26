@@ -8,10 +8,11 @@ public class App
 //    Implement Zipper
 
     public static void main(String[] args ) throws IOException {
-        String[] languages = {"EN", "DE", "ES", "FR", "PT"};
+        String[] languages = {"EN", "DE"};
         new InteractiveShowcases(languages);
         new ProductPictures(languages);
         new UploadVideos(languages);
         new BgBlank();
+        new CreateZip(languages);
     }
 }

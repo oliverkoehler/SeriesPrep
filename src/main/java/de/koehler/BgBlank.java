@@ -27,6 +27,6 @@ public class BgBlank {
             FileUtils.copyFile(file, copied);
         }
 
-        System.out.println("4 / 9 - Others completed.");
+        System.out.println("4 / 7 - Others completed.");
     }
 }

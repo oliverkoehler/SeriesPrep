@@ -35,6 +35,6 @@ public class UploadVideos {
                 } catch (NullPointerException ignored){}
             }
         }
-        System.out.println("3 / 9 - UploadVideos completed.");
+        System.out.println("3 / 7 - UploadVideos completed.");
     }
 }

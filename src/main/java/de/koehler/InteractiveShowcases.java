@@ -48,6 +48,6 @@ public class InteractiveShowcases {
                 } catch (NullPointerException ignored){}
             }
         }
-        System.out.println("1 / 9 - Interactive Showcases completed.");
+        System.out.println("1 / 7 - Interactive Showcases completed.");
     }
 }

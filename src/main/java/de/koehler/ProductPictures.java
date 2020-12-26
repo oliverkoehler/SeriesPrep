@@ -42,6 +42,6 @@ public class ProductPictures {
                 } catch (NullPointerException ignored){}
             }
         }
-        System.out.println("2 / 9 - ProductPictures completed.");
+        System.out.println("2 / 7 - ProductPictures completed.");
     }
 }
