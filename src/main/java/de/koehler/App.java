@@ -13,7 +13,8 @@ public class App
 
     public static void main(String[] args ) throws IOException {
         String[] languages = {"EN", "DE", "ES", "FR", "PT"};
-        new InteractiveShowcases(languages);
-        new ProductPictures(languages);
+//        new InteractiveShowcases(languages);
+//        new ProductPictures(languages);
+        new UploadVideos(languages);
     }
 }
