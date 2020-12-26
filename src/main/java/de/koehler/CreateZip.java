@@ -7,47 +7,26 @@ import java.util.Properties;
 public class CreateZip {
     Properties prop = new Properties();
     FileInputStream ip = new FileInputStream(".\\src\\main\\resources\\config.properties");
+    String[] products = {"Alerts", "Intermission-Banner", "Talking-Banner", "Transition", "Webcam-Overlay", "Desktop-Wallpaper", "Panels", "Twitch-Profile", "Youtube-Banner"};
 
-    public void createZips(String[] languages, String filterBy) throws IOException {
-        for (String language : languages){
-            String path = prop.getProperty("seriesfolder") + prop.getProperty("seriesname") + "\\" + prop.getProperty("seriesname") + "-Series-Premium-" + language + "\\Files";
-            FilesByName files = new FilesByName(path, filterBy);
-            new Zip(prop.getProperty("seriesname") + "-" + filterBy + "-" + language, "D:\\Output\\" + prop.getProperty("seriesname") + "\\", files.files);
-        }
-    }
-
-    public CreateZip(String[] languages) throws IOException {
+    public CreateZip(String[] languages, boolean bundles) throws IOException {
         prop.load(ip);
         String path = prop.getProperty("seriesfolder") + prop.getProperty("seriesname");
 
-        //Basic
+        //Bundles
         for (String language : languages){
-            FilesByName files = new FilesByName(path, "-Series-Basic-" + language);
-
-            for(int i = 0; i < files.files.length; i++){
-                new Zip(prop.getProperty("seriesname") + "-Basic-" + language, "D:\\Output\\" + prop.getProperty("seriesname") + "\\", files.files);
-            }
+            multiThreadBasic basic = new multiThreadBasic(language, path);
+            basic.start();
+            multiThreadPremium premium = new multiThreadPremium(language, path);
+            premium.start();
         }
-
-        System.out.println("5 / 7 - Basic Zips completed.");
-
-        //Premium
-        for (String language : languages){
-            FilesByName files = new FilesByName(path, "-Series-Premium-" + language);
-
-            for(int i = 0; i < files.files.length; i++){
-                new Zip(prop.getProperty("seriesname") + "-Premium-" + language, "D:\\Output\\" + prop.getProperty("seriesname") + "\\", files.files);
-            }
-        }
-        System.out.println("6 / 7 - Premium Zips completed.");
 
         //Single Products
-        String[] products = {"Alerts", "Intermission-Banner", "Talking-Banner", "Transition", "Webcam-Overlay", "Desktop-Wallpaper", "Panels", "Twitch-Profile", "Youtube-Banner"};
-
-        for (String product : products){
-            createZips(languages, product);
+        for (String language : languages){
+            for (String product : products){
+                multiThreadZip t = new multiThreadZip(language, product);
+                t.start();
+            }
         }
-
-        System.out.println("7 / 7 - Single Product Zips completed.");
     }
 }

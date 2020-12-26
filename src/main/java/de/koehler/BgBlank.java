@@ -18,15 +18,17 @@ public class BgBlank {
         String path = "G:\\Geteilte Ablagen\\Animation\\Projects\\Animated Overlays\\" + prop.getProperty("seriesname") + "\\Webm";
         FilesByName files = new FilesByName(path, cases);
 
-        if (files.files.length == 0){
-            System.err.println("File: " + prop.getProperty("seriesname") + cases + " Desc: File does not exist.");
-        }
+        try {
+            if (files.files.length == 0){
+                System.err.println("File: " + prop.getProperty("seriesname") + cases + " Desc: File does not exist.");
+            }
 
-        for (File file : files.files) {
-            File copied = new File(prop.getProperty("targetPath") + prop.getProperty("seriesname") + "\\Others\\" + file.getName());
-            FileUtils.copyFile(file, copied);
-        }
+            for (File file : files.files) {
+                File copied = new File(prop.getProperty("targetPath") + prop.getProperty("seriesname") + "\\Others\\" + file.getName());
+                FileUtils.copyFile(file, copied);
+            }
 
-        System.out.println("4 / 7 - Others completed.");
+            System.out.println("4 / 7 - Others completed.");
+        } catch (NullPointerException ignored){}
     }
 }
