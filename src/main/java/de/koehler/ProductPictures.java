@@ -31,11 +31,11 @@ public class ProductPictures {
             for (String aCase : cases) {
                 FilesByName files = new FilesByName(path, aCase);
                 if (files.files.length == 0){
-                    System.err.println("File does not exist. File: " + prop.getProperty("seriesname") + aCase + " Lang: " + language);
+                    System.err.println("Lang: " + language + " File: " + aCase + " Desc: File does not exist.");
                 }
 
                 for (File file : files.files) {
-                    File copied = new File(prop.getProperty("targetPath") + prop.getProperty("seriesname") + "\\UploadVideos\\" + language + "\\" + file.getName());
+                    File copied = new File(prop.getProperty("targetPath") + prop.getProperty("seriesname") + "\\ProductPictures\\" + language + "\\" + file.getName());
                     FileUtils.copyFile(file, copied);
                 }
             }

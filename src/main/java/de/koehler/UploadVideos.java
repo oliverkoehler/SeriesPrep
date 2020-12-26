@@ -24,7 +24,7 @@ public class UploadVideos {
             for (String aCase : cases) {
                 FilesByName files = new FilesByName(path, aCase);
                 if (files.files.length == 0){
-                    System.err.println("File does not exist. File: " + prop.getProperty("seriesname") + aCase + " Lang: " + language);
+                    System.err.println("Lang: " + language + " File: " + prop.getProperty("seriesname") + aCase + " Desc: File does not exist.");
                 }
 
                 for (File file : files.files) {
