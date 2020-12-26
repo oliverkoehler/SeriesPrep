@@ -4,7 +4,6 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Properties;
 
 public class InteractiveShowcases {
@@ -12,22 +11,22 @@ public class InteractiveShowcases {
     FileInputStream ip = new FileInputStream(".\\src\\main\\resources\\config.properties");
 
     String[] cases = {
-            "-alert-cheer-ia-en.webm",
-            "-alert-donation-ia-en.webm",
-            "-alert-follower-ia-en.webm",
-            "-alert-host-ia-en.webm",
-            "-alert-raid-ia-en.webm",
-            "-alert-subscriber-ia-en.webm",
-            "-desktop-wallpaper-ia-en.webm",
-            "-intermission-ending-ia-en.webm",
-            "-intermission-offline-ia-en.webm",
-            "-intermission-pause-ia-en.webm",
-            "-intermission-starting-ia-en.webm",
-            "-overlay-ia-en.webm",
-            "-talking-banner-ia-en.webm",
-            "-twitch-profile-ia-en.webm",
-            "-webcam-ia-en.webm",
-            "-youtube-banner-ia-en.webm"
+            "-alert-cheer-ia-",
+            "-alert-donation-ia-",
+            "-alert-follower-ia-",
+            "-alert-host-ia-",
+            "-alert-raid-ia-",
+            "-alert-subscriber-ia-",
+            "-desktop-wallpaper-ia-",
+            "-intermission-ending-ia-",
+            "-intermission-offline-ia-",
+            "-intermission-pause-ia-",
+            "-intermission-starting-ia-",
+            "-overlay-ia-",
+            "-talking-banner-ia-",
+            "-twitch-profile-ia-",
+            "-webcam-ia-",
+            "-youtube-banner-ia-"
     };
 
     InteractiveShowcases(String[] languages) throws IOException {
@@ -37,7 +36,7 @@ public class InteractiveShowcases {
             for (String aCase : cases) {
                 FilesByName files = new FilesByName(path, aCase);
                 if (files.files.length == 0){
-                    System.err.println("File does not exist. File: " + prop.getProperty("seriesname") + aCase);
+                    System.err.println("File does not exist. File: " + prop.getProperty("seriesname") + aCase + " Lang: " + language);
                 }
 
                 for (File file : files.files) {

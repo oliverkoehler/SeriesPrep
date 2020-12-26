@@ -11,7 +11,7 @@ public class ProductPictures {
     FileInputStream ip = new FileInputStream(".\\src\\main\\resources\\config.properties");
 
     String[] cases = {
-            "-overlaytrailer-NOFB.jpg",
+            "-NOFB.jpg",
             "-alert-product-picture.jpg",
             "-desktop-wallpaper-product-picture.jpg",
             "-intermission-banners-product-picture.jpg",
@@ -25,12 +25,13 @@ public class ProductPictures {
 
     ProductPictures(String[] languages) throws IOException {
         prop.load(ip);
+
         for (String language : languages) {
             String path = prop.getProperty("seriesfolder") + prop.getProperty("seriesname") + "\\SHOP\\" + language + "\\";
             for (String aCase : cases) {
                 FilesByName files = new FilesByName(path, aCase);
                 if (files.files.length == 0){
-                    System.err.println("File does not exist. File: " + prop.getProperty("seriesname") + aCase);
+                    System.err.println("File does not exist. File: " + prop.getProperty("seriesname") + aCase + " Lang: " + language);
                 }
 
                 for (File file : files.files) {
