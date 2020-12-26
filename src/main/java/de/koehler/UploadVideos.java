@@ -22,15 +22,17 @@ public class UploadVideos {
         for (String language : languages) {
             String path = prop.getProperty("seriesfolder") + prop.getProperty("seriesname") + "\\SHOP\\" + language + "\\";
             for (String aCase : cases) {
-                FilesByName files = new FilesByName(path, aCase);
-                if (files.files.length == 0){
-                    System.err.println("Lang: " + language + " File: " + prop.getProperty("seriesname") + aCase + " Desc: File does not exist.");
-                }
+                try {
+                    FilesByName files = new FilesByName(path, aCase);
+                    if (files.files.length == 0){
+                        System.err.println("Lang: " + language + " File: " + prop.getProperty("seriesname") + aCase + " Desc: File does not exist.");
+                    }
 
-                for (File file : files.files) {
-                    File copied = new File(prop.getProperty("targetPath") + prop.getProperty("seriesname") + "\\UploadVideos\\" + language + "\\" + file.getName());
-                    FileUtils.copyFile(file, copied);
-                }
+                    for (File file : files.files) {
+                        File copied = new File(prop.getProperty("targetPath") + prop.getProperty("seriesname") + "\\UploadVideos\\" + language + "\\" + file.getName());
+                        FileUtils.copyFile(file, copied);
+                    }
+                } catch (NullPointerException ignored){}
             }
         }
         System.out.println("3 / 9 - UploadVideos completed.");

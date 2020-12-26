@@ -29,15 +29,17 @@ public class ProductPictures {
         for (String language : languages) {
             String path = prop.getProperty("seriesfolder") + prop.getProperty("seriesname") + "\\SHOP\\" + language + "\\";
             for (String aCase : cases) {
-                FilesByName files = new FilesByName(path, aCase);
-                if (files.files.length == 0){
-                    System.err.println("Lang: " + language + " File: " + aCase + " Desc: File does not exist.");
-                }
+                try {
+                    FilesByName files = new FilesByName(path, aCase);
+                    if (files.files.length == 0){
+                        System.err.println("Lang: " + language + " File: " + aCase + " Desc: File does not exist.");
+                    }
 
-                for (File file : files.files) {
-                    File copied = new File(prop.getProperty("targetPath") + prop.getProperty("seriesname") + "\\ProductPictures\\" + language + "\\" + file.getName());
-                    FileUtils.copyFile(file, copied);
-                }
+                    for (File file : files.files) {
+                        File copied = new File(prop.getProperty("targetPath") + prop.getProperty("seriesname") + "\\ProductPictures\\" + language + "\\" + file.getName());
+                        FileUtils.copyFile(file, copied);
+                    }
+                } catch (NullPointerException ignored){}
             }
         }
         System.out.println("2 / 9 - ProductPictures completed.");

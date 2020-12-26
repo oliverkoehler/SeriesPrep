@@ -35,14 +35,17 @@ public class InteractiveShowcases {
             String path = prop.getProperty("seriesfolder") + prop.getProperty("seriesname") + "\\SHOP\\" + language + "\\";
             for (String aCase : cases) {
                 FilesByName files = new FilesByName(path, aCase);
-                if (files.files.length == 0){
-                    System.err.println("Lang: " + language + " File: " + aCase + " Desc: File does not exist.");
-                }
 
-                for (File file : files.files) {
-                    File copied = new File(prop.getProperty("targetPath") + prop.getProperty("seriesname") + "\\IA\\" + language + "\\" + file.getName());
-                    FileUtils.copyFile(file, copied);
-                }
+                try {
+                    if (files.files.length == 0){
+                        System.err.println("Lang: " + language + " File: " + aCase + " Desc: File does not exist.");
+                    }
+
+                    for (File file : files.files) {
+                        File copied = new File(prop.getProperty("targetPath") + prop.getProperty("seriesname") + "\\IA\\" + language + "\\" + file.getName());
+                        FileUtils.copyFile(file, copied);
+                    }
+                } catch (NullPointerException ignored){}
             }
         }
         System.out.println("1 / 9 - Interactive Showcases completed.");
