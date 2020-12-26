@@ -40,7 +40,7 @@ public class InteractiveShowcases {
                 }
 
                 for (File file : files.files) {
-                    File copied = new File(prop.getProperty("targetPath") + "IA\\" + language.toLowerCase() + "\\" + file.getName());
+                    File copied = new File(prop.getProperty("targetPath") + prop.getProperty("seriesname") + "\\UploadVideos\\" + language + "\\" + file.getName());
                     FileUtils.copyFile(file, copied);
                 }
             }

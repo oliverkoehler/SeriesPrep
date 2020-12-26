@@ -35,7 +35,7 @@ public class ProductPictures {
                 }
 
                 for (File file : files.files) {
-                    File copied = new File(prop.getProperty("targetPath") + "ProductPictures\\" + language + "\\" + file.getName());
+                    File copied = new File(prop.getProperty("targetPath") + prop.getProperty("seriesname") + "\\UploadVideos\\" + language + "\\" + file.getName());
                     FileUtils.copyFile(file, copied);
                 }
             }
