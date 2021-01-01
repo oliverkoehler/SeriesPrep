@@ -22,5 +22,8 @@ public class App
             System.out.println("Starte createZips");
             new CreateZip(languages, true);
         }
+        if (prop.getProperty("updateFiles").equals("true")){
+            new UpdateFiles();
+        }
     }
 }
