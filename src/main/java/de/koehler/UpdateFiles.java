@@ -19,6 +19,7 @@ public class UpdateFiles {
         ZipFile zipFile = new ZipFile(targetFile.filePath);
         for (File file : sourceFile.files) {
             zipFile.addFolder(file);
+            System.out.println("File: " + file.getName());
         }
     }
 
