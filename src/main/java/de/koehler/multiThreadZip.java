@@ -19,12 +19,11 @@ public class multiThreadZip extends Thread{
 
     @Override
     public void run() {
-        System.out.println("Starte Thread " + filterBy);
         try {
             prop.load(ip);
             String path = prop.getProperty("seriesfolder") + prop.getProperty("seriesname") + "\\" + prop.getProperty("seriesname") + "-Series-Premium-" + language + "\\Files";
             FilesByName files = new FilesByName(path, filterBy);
-            new Zip(prop.getProperty("seriesname") + "-" + filterBy + "-" + language, "D:\\Output\\" + prop.getProperty("seriesname") + "\\", files.files);
+            new Zip(prop.getProperty("seriesname") + "-" + filterBy + "-" + language, prop.getProperty("targetPath") + prop.getProperty("seriesname") + "\\", files.files);
         } catch (NullPointerException | IOException ignored){}
 
         System.out.println("Beende Thread " + filterBy + " " + language);

@@ -19,14 +19,12 @@ public class multiThreadBasic extends Thread{
 
     @Override
     public void run() {
-        System.out.println("Starte Thread Basic " + language);
-
         try {
             prop.load(ip);
             FilesByName files = new FilesByName(path, "-Series-Basic-" + language);
 
             for(int i = 0; i < files.files.length; i++){
-                new Zip(prop.getProperty("seriesname") + "-Basic-" + language, "D:\\Output\\" + prop.getProperty("seriesname") + "\\", files.files);
+                new Zip(prop.getProperty("seriesname") + "-Basic-" + language, prop.getProperty("targetPath") + prop.getProperty("seriesname") + "\\", files.files);
             }
 
         } catch (NullPointerException | IOException ignored){}

@@ -11,22 +11,22 @@ public class InteractiveShowcases {
     FileInputStream ip = new FileInputStream(".\\src\\main\\resources\\config.properties");
 
     String[] cases = {
-            "-alert-cheer-ia-",
-            "-alert-donation-ia-",
-            "-alert-follower-ia-",
-            "-alert-host-ia-",
-            "-alert-raid-ia-",
-            "-alert-subscriber-ia-",
-            "-desktop-wallpaper-ia-",
-            "-intermission-ending-ia-",
-            "-intermission-offline-ia-",
-            "-intermission-pause-ia-",
-            "-intermission-starting-ia-",
-            "-overlay-ia-",
-            "-talking-banner-ia-",
-            "-twitch-profile-ia-",
-            "-webcam-ia-",
-            "-youtube-banner-ia-"
+            "-alert-cheer-ia",
+            "-alert-donation-ia",
+            "-alert-follower-ia",
+            "-alert-host-ia",
+            "-alert-raid-ia",
+            "-alert-subscriber-ia",
+            "-desktop-wallpaper-ia",
+            "-intermission-ending-ia",
+            "-intermission-offline-ia",
+            "-intermission-pause-ia",
+            "-intermission-starting-ia",
+            "-overlay-ia",
+            "-talking-banner-ia",
+            "-twitch-profile-ia",
+            "-webcam-ia",
+            "-youtube-banner-ia"
     };
 
     InteractiveShowcases(String[] languages) throws IOException {

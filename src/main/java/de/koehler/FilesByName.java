@@ -10,10 +10,14 @@ public class FilesByName {
     String filePath;
 
     FilesByName(String searchPath, final String filterBy){
-        File dir = new File(searchPath);
-        FilenameFilter filter = (dir1, name) -> name.contains(filterBy);
-        files = dir.listFiles(filter);
-        filename = files[0].getName();
-        filePath = files[0].getPath();
+        try {
+            File dir = new File(searchPath);
+            FilenameFilter filter = (dir1, name) -> name.contains(filterBy);
+            files = dir.listFiles(filter);
+            filename = files[0].getName();
+            filePath = files[0].getPath();
+        } catch (NullPointerException | ArrayIndexOutOfBoundsException e){
+            System.out.println("File not found: " + filterBy);
+        }
     }
 }

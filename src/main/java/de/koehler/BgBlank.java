@@ -10,7 +10,7 @@ public class BgBlank {
     Properties prop = new Properties();
     FileInputStream ip = new FileInputStream(".\\src\\main\\resources\\config.properties");
 
-    String cases = "intermission-bg-blank";
+    String cases = "bg-blank";
 
     BgBlank() throws IOException {
         prop.load(ip);

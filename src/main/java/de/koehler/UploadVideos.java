@@ -13,7 +13,7 @@ public class UploadVideos {
     String[] cases = {
             "-transition-showcase.webm",
             "-showcase.webm",
-            "30sek-1920x1080.mp4"
+            "35sek-1920x1080.mp4"
     };
 
     UploadVideos(String[] languages) throws IOException {
